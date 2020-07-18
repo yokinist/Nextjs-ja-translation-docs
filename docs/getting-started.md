@@ -1,5 +1,5 @@
 ---
-description: 公式ドキュメントでNext.jsを始めてみましょう！ 
+description: 公式ドキュメントでNext.jsを始めてみましょう！
 ---
 
 # はじめに
@@ -10,7 +10,7 @@ Next.jsを初めて使用する場合は、[学習コース](https://nextjs.org/
 
 `学習コースは翻訳されていません。`
 
-インタラクティブなクイズによる学習コースでは、Next.jsを使うために必要なすべての知識を習得できます。
+インタラクティブな、クイズによる、学習コースでは、Next.jsを使うために、必要な、すべての知識を習得できます
 
 Next.jsに関連する質問がある場合は、[GitHub Discussions](https://github.com/zeit/next.js/discussions)のコミュニティーでなんでも質問してください。
 
