@@ -31,4 +31,4 @@ jobs:
         LEVEL: error
         REVIEWDOG_GITHUB_API_TOKEN: ${{ github.token }}
         run: |
-          $(npm bin)/textlint ${FILES} -f checkstyle | ./bin/reviewdog -f=checkstyle -name=textlint -reporter=github-pr-review -level=${LEVEL}
+          yarn textlint ${FILES} -f checkstyle | ./bin/reviewdog -f=checkstyle -name=textlint -reporter=github-pr-review -level=${LEVEL}
