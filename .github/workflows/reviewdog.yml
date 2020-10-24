@@ -31,4 +31,4 @@ jobs:
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          $(npm bin)/textlint -f checkstyle docs/**.md | reviewdog -f=checkstyle -name=textlint -reporter=github-pr-review,github-pr-check
+          $(npm bin)/textlint -f checkstyle docs/**.md | reviewdog -f=checkstyle -name=textlint -reporter=github-pr-review -reporter=github-pr-check
