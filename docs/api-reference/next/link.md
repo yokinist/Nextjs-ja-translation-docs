@@ -7,7 +7,7 @@ description: 組み込みの Link コンポーネントを使用して、ルー�
 <details>
   <summary><b>例</b></summary>
   <ul>
-    <li><a href="https://github.com/zeit/next.js/tree/canary/examples/hello-world">Hello World</a></li>
+    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/hello-world">Hello World</a></li>
   </ul>
 </details>
 
@@ -53,8 +53,6 @@ export default Home;
 外部 URL や `/pages` を使ったルートナビゲーションを必要としないリンクは、`Link` で処理する必要はありません; このような場合には、代わりにアンカータグを使用してください。
 
 ## 動的ルーティング
-
-A `Link` to a dynamic route is a combination of the `href` and `as` props. A link to the page `pages/post/[pid].js` will look like this:
 
 動的ルーティングへの `Link` は、`href` と `as` の props の組み合わせです。`pages/post/[pid].js` のページへのリンクは以下のようになります:
 

@@ -70,7 +70,7 @@ export default withPure(() => (
               </Link>
             </p>
             <p>
-              <Link href="/contributors">
+              <Link href="https://github.com/Nextjs-ja-translation/Nextjs-ja-translation-docs#contributors-">
                 <a>コントリビューター</a>
               </Link>
             </p>
@@ -78,7 +78,7 @@ export default withPure(() => (
           <div>
             <h4 className="fw5">More</h4>
             <p>
-              <a href="https://github.com/zeit/next.js" rel="noopener noreferrer" target="_blank">
+              <a href="https://github.com/vercel/next.js" rel="noopener noreferrer" target="_blank">
                 Next.js GitHub
               </a>
             </p>
@@ -93,7 +93,7 @@ export default withPure(() => (
             </p>
             <p>
               <a
-                href="https://github.com/zeit/next.js/releases"
+                href="https://github.com/vercel/next.js/releases"
                 rel="noopener noreferrer"
                 target="_blank"
               >
