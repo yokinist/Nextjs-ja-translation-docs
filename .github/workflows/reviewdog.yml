@@ -27,8 +27,13 @@ jobs:
       - uses: reviewdog/action-setup@v1
         with:
           reviewdog_version: latest
-      - name: lint
+      - name: textlint/pr-review
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           $(npm bin)/textlint -f checkstyle docs/**.md | reviewdog -f=checkstyle -name=textlint -reporter=github-pr-review
+      - name: textlint/pr-check
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $(npm bin)/textlint -f checkstyle docs/**.md | reviewdog -f=checkstyle -name=textlint -reporter=github-pr-check
