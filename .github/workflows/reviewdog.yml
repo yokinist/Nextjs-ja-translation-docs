@@ -1,38 +1,34 @@
-name: reviewdog
+name: textlint
 
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  textlint:
-    name: runner / textlint
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
         with:
-          submodules: true
-      - name: Setup node/npm
-        uses: actions/setup-node@v2-beta
+          node-version: 12.x
+      - name: Restore dependencies
+        uses: actions/cache@v1
         with:
-          node-version: '15'
-      - name: textlint-github-pr-check
-        uses: tsuyoshicho/action-textlint@v2.0.2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-check
-          textlint_flags: 'docs/**'
-          level: error
-      - name: textlint-github-check
-        uses: tsuyoshicho/action-textlint@v2.0.2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-check
-          textlint_flags: 'docs/**'
-          level: error
-      - name: textlint-github-pr-review
-        uses: tsuyoshicho/action-textlint@v2.0.2
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
-          textlint_flags: 'docs/**'
-          level: error
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile
+      - name: install reviewdog
+        run: |
+          curl -sfL https://raw.githubusercontent.com/reviewdog/reviewdog/master/install.sh| sh -s  v0.9.13
+      - name: lint
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $(npm bin)/textlint -f checkstyle docs/**.md | ./bin/reviewdog -f=checkstyle -name=textlint -reporter=github-pr-review
