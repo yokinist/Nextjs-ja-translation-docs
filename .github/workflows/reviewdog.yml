@@ -1,31 +1,37 @@
-name: reviewdog
+name: textlint
 
-on: [pull_request]
+on:
+  pull_request:
+    branches:
+      - master
 
 jobs:
-  textlint:
-    name: runner / textlint
+  build:
     runs-on: ubuntu-latest
+    env:
+      LEVEL: error
+      FLAGS: docs/**.md
     steps:
       - uses: actions/checkout@v2
-      - name: textlint-github-pr-check
-        uses: tsuyoshicho/action-textlint@master
+      - uses: actions/setup-node@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-check
-          textlint_flags: 'docs/**'
-          level: error
-      - name: textlint-github-check
-        uses: tsuyoshicho/action-textlint@master
+          node-version: '12'
+      - name: Restore dependencies
+        uses: actions/cache@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-check
-          textlint_flags: 'docs/**'
-          level: error
-      - name: textlint-github-pr-review
-        uses: tsuyoshicho/action-textlint@master
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        run: |
+          yarn install --frozen-lockfile
+      - name: Setup reviewdog
+        uses: reviewdog/action-setup@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          reporter: github-pr-review
-          textlint_flags: 'docs/**'
-          level: error
+          reviewdog_version: latest
+      - name: Check and Review
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          $(npm bin)/textlint -f checkstyle "${FLAGS:-'.'}" | reviewdog -f=checkstyle -name=check -reporter=github-pr-review -reporter=github-pr-check -level="${LEVEL}"
