@@ -7,6 +7,7 @@ jobs:
     name: runner / textlint
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Setup node/npm
         uses: actions/setup-node@v2-beta
         with:
