@@ -16,21 +16,21 @@ jobs:
         with:
           node-version: '15'
       - name: textlint-github-pr-check
-        uses: tsuyoshicho/action-textlint@v2
+        uses: tsuyoshicho/action-textlint@v2.0.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-check
           textlint_flags: 'docs/**'
           level: error
       - name: textlint-github-check
-        uses: tsuyoshicho/action-textlint@v2
+        uses: tsuyoshicho/action-textlint@v2.0.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-check
           textlint_flags: 'docs/**'
           level: error
       - name: textlint-github-pr-review
-        uses: tsuyoshicho/action-textlint@v2
+        uses: tsuyoshicho/action-textlint@v2.0.2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           reporter: github-pr-review
