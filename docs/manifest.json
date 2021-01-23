@@ -22,6 +22,10 @@
               "path": "/docs/basic-features/built-in-css-support.md"
             },
             {
+              "title": "Image Optimization",
+              "path": "/docs/basic-features/image-optimization.md"
+            },
+            {
               "title": "Fast Refresh",
               "path": "/docs/basic-features/fast-refresh.md"
             },
@@ -88,6 +92,10 @@
         {
           "title": "Deployment",
           "path": "/docs/deployment.md"
+        },
+        {
+          "title": "Authentication",
+          "path": "/docs/authentication.md"
         },
         {
           "title": "Advanced Features",
@@ -180,6 +188,14 @@
             {
               "title": "Codemods",
               "path": "/docs/advanced-features/codemods.md"
+            },
+            {
+              "title": "Source Maps",
+              "path": "/docs/advanced-features/source-maps.md"
+            },
+            {
+              "title": "Internationalized Routing",
+              "path": "/docs/advanced-features/i18n-routing.md"
             }
           ]
         },
@@ -191,8 +207,20 @@
           "title": "Migrating to Next.js",
           "routes": [
             {
+              "title": "Incrementally Adopting Next.js",
+              "path": "/docs/migrating/incremental-adoption.md"
+            },
+            {
               "title": "Migrating from Gatsby",
               "path": "/docs/migrating/from-gatsby.md"
+            },
+            {
+              "title": "Migrating from Create React App",
+              "path": "/docs/migrating/from-create-react-app.md"
+            },
+            {
+              "title": "Migrating from React Router",
+              "path": "/docs/migrating/from-react-router"
             }
           ]
         },
@@ -215,6 +243,10 @@
         {
           "title": "next/link",
           "path": "/docs/api-reference/next/link.md"
+        },
+        {
+          "title": "next/image",
+          "path": "/docs/api-reference/next/image.md"
         },
         {
           "title": "next/head",
@@ -257,7 +289,7 @@
               "path": "/docs/api-reference/next.config.js/redirects.md"
             },
             {
-              "title": "Custom Headers",
+              "title": "独自のヘッダー",
               "path": "/docs/api-reference/next.config.js/headers.md"
             },
             {
@@ -267,10 +299,6 @@
             {
               "title": "アセットプレフィックスによる CDN サポート",
               "path": "/docs/api-reference/next.config.js/cdn-support-with-asset-prefix.md"
-            },
-            {
-              "title": "ビルドターゲット",
-              "path": "/docs/api-reference/next.config.js/build-target.md"
             },
             {
               "title": "webpackの設定のカスタマイズ",
@@ -317,11 +345,11 @@
               "path": "/docs/api-reference/next.config.js/exportPathMap.md"
             },
             {
-              "title": "Trailing Slash",
+              "title": "末尾のスラッシュ",
               "path": "/docs/api-reference/next.config.js/trailing-slash.md"
             },
             {
-              "title": "React Strict Mode",
+              "title": "React Strict モード",
               "path": "/docs/api-reference/next.config.js/react-strict-mode.md"
             }
           ]

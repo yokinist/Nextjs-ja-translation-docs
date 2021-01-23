@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  build:
+  setup:
     runs-on: ubuntu-latest
     env:
       LEVEL: error
@@ -30,9 +30,6 @@ jobs:
         uses: reviewdog/action-setup@v1
         with:
           reviewdog_version: latest
-  check:
-    runs-on: ubuntu-latest
-    steps:
       - name: Check and Review
         env:
           REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
